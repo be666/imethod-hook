@@ -16,15 +16,7 @@ function webHook(options) {
   handler.on('push', function (event) {
     console.log('Received a push event for %s to %s',
       event.payload.repository.name,
-      event.payload.ref)
-    console.log(event.event);
-    console.log(event.payload);
-    console.log(event.payload.repository.name);
-    console.log(event.payload.repository.full_name);
-    console.log(event.payload.repository.fork);
-    console.log(event.payload.before);
-    console.log(event.payload.after);
-    console.log(event);
+      event.payload.ref);
     let WebHookExec = tools.getModelByName('WebHookExec');
     WebHookExec.push(event.payload.repository.name, event.payload.ref, event.payload.after,event, function () {
 

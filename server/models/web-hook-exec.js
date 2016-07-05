@@ -14,6 +14,8 @@ module.exports = function (WebHookExec) {
   let clientCmd = function (directory, versionId, next) {
 
     exec(`${clientPath} ${directory} ${versionId}`, function (err, stdout, stderr) {
+      console.log(stdout);
+      console.log(stderr);
       if (err||stderr) {
         return next(err, stdout, stderr);
       }
@@ -24,6 +26,8 @@ module.exports = function (WebHookExec) {
 
   let serverCmd = function (directory, versionId, next) {
     exec(`${serverPath} ${directory} ${versionId}`, function (err, stdout, stderr) {
+      console.log(stdout);
+      console.log(stderr);
       if (err||stderr) {
         return next(err, stdout, stderr);
       }
@@ -76,9 +80,11 @@ module.exports = function (WebHookExec) {
         }
         next();
       }).catch(function (err) {
+        console.log(err);
         next(err);
       })
     }).catch(function (err) {
+      console.log(err);
       next(err);
     })
   }
