@@ -1,0 +1,24 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "./models",
+      "../app/auth/models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "./mixins",
+      "../auth/mixins"
+    ]
+  },
+  "AuthClient": {
+    "dataSource": "db",
+    "public": false
+  },
+  "WebHook": {
+    "dataSource": "db",
+    "public": false
+  }
+}

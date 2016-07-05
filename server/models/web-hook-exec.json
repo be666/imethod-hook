@@ -1,0 +1,69 @@
+{
+  "name": "WebHookExec",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "repositoryName": {
+      "type": "string",
+      "required": false,
+      "length": 20,
+      "precision": null,
+      "scale": null,
+      "_selectable": true
+    },
+    "action": {
+      "type": "string",
+      "required": false,
+      "length": 20,
+      "precision": null,
+      "scale": null,
+      "_selectable": true
+    },
+    "pushRef": {
+      "type": "string",
+      "required": false,
+      "length": 20,
+      "precision": null,
+      "scale": null,
+      "_selectable": true
+    },
+    "issueNumber": {
+      "type": "string",
+      "required": false,
+      "length": 20,
+      "precision": null,
+      "scale": null,
+      "_selectable": true
+    },
+    "issueTitle": {
+      "type": "string",
+      "required": false,
+      "length": 20,
+      "precision": null,
+      "scale": null,
+      "_selectable": true
+    },
+    "receiveTime": {
+      "type": "Date",
+      "required": false,
+      "precision": null,
+      "scale": null,
+      "_selectable": true
+    },
+    "execStatus": {
+      "type": "string",
+      "required": false,
+      "length": 20,
+      "precision": null,
+      "scale": null,
+      "_selectable": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
