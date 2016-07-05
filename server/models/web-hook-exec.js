@@ -65,7 +65,7 @@ module.exports = function (WebHookExec) {
             });
           });
         } else if (webHook.pushCMD == 'server') {
-          serverCmd(webHook.directory, after, function (err) {
+          serverCmd(webHook.directory, after, function (err, stdout, stderr) {
             webHookExec.error = JSON.stringify(err||'{}');
             webHookExec.stdout = stdout;
             webHookExec.stderr = stderr;

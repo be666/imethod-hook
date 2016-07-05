@@ -4,16 +4,16 @@
     "connector": "mysql",
     "host": "127.0.0.1",
     "username": "hook",
-    "password": "123456",
+    "password": "1935762",
     "port": "3306",
     "database": "hook"
   },
   "hook": {
-    "name": "db",
+    "name": "hook",
     "connector": "mysql",
     "host": "127.0.0.1",
     "username": "hook",
-    "password": "123456",
+    "password": "1935762",
     "port": "3306",
     "database": "hook"
   }

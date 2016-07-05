@@ -6,7 +6,7 @@ module.exports = function (app) {
   let init = function () {
 
   };
-  if (process.env.NODE_ENV != 'production') {
+  if (process.env.NODE_ENV != 'bcaring') {
     async.mapSeries(app.models(), function (Model, cbx) {
       let dataSource = Model.dataSource;
       if (!dataSource || dataSource.name == 'Memory') {
