@@ -1,6 +1,12 @@
 {
   "db": {
     "name": "db",
-    "connector": "memory"
+    "connector": "memory",
+    "file": "server/resource/memory/db.json"
+  },
+  "hook": {
+    "name": "hook",
+    "connector": "memory",
+    "file": "server/resource/memory/hook.json"
   }
 }

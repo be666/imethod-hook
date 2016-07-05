@@ -13,12 +13,24 @@
       "../auth/mixins"
     ]
   },
-  "AuthClient": {
+  "AccessToken": {
     "dataSource": "db",
     "public": false
   },
-  "WebHook": {
+  "ACL": {
     "dataSource": "db",
     "public": false
+  },
+  "AuthClient": {
+    "dataSource": "hook",
+    "public": true
+  },
+  "WebHook": {
+    "dataSource": "hook",
+    "public": true
+  },
+  "WebHookExec": {
+    "dataSource": "hook",
+    "public": true
   }
 }

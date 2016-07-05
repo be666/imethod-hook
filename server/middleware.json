@@ -41,6 +41,10 @@
       ]
     },
     "./middleware/webhook.js": {
+      "params": {
+        "path": "/ping",
+        "secret": "WhoIsYourDaddy"
+      }
     }
   },
   "files": {

@@ -1,0 +1,12 @@
+{
+  "hook": [
+    {
+      "hook": {
+        "template": "templates/default.ejs",
+        "title": "",
+        "keywords": "",
+        "description": ""
+      }
+    }
+  ]
+}

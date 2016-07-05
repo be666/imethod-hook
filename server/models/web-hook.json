@@ -13,10 +13,36 @@
       "precision": null,
       "scale": null,
       "_selectable": true
+    },
+    "ref": {
+      "type": "String",
+      "required": false,
+      "length": 200,
+      "precision": null,
+      "scale": null,
+      "_selectable": true
+    },
+    "directory": {
+      "type": "String",
+      "required": false,
+      "length": 200,
+      "precision": null,
+      "scale": null,
+      "_selectable": true
+    },
+    "pushCMD": {
+      "type": "String",
+      "required": false,
+      "length": 200,
+      "precision": null,
+      "scale": null,
+      "_selectable": true
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+
+  },
   "acls": [],
   "methods": {}
 }

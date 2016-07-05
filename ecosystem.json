@@ -3,7 +3,6 @@
     {
       "name": "imethod-hook",
       "script": "server/server.js",
-      "node_args": "--harmony",
       "watch": false,
       "ignore_watch": [
         ".idea",
@@ -14,19 +13,9 @@
         "client"
       ],
       "next_gen_js": true,
-      "env_bcaring": {
-        "NODE_ENV": "bcaring"
+      "env_dev": {
+        "NODE_ENV": "dev"
       }
     }
-  ],
-  "deploy": {
-    "bcaring": {
-      "user": "root",
-      "host": "bcaring.cn",
-      "ref": "origin/master",
-      "repo": "git@github.com:imethod/imethod-hook.git",
-      "path": "/var/www/imethod-hook",
-      "post-deploy": "npm install;pm2 startOrRestart ecosystem.json --env bcaring"
-    }
-  }
+  ]
 }

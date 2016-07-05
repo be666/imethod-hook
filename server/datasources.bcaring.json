@@ -7,5 +7,14 @@
     "password": "123456",
     "port": "3306",
     "database": "hook"
+  },
+  "hook": {
+    "name": "db",
+    "connector": "mysql",
+    "host": "127.0.0.1",
+    "username": "hook",
+    "password": "123456",
+    "port": "3306",
+    "database": "hook"
   }
 }

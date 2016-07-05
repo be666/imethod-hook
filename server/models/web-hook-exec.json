@@ -6,8 +6,8 @@
     "validateUpsert": true
   },
   "properties": {
-    "repositoryName": {
-      "type": "string",
+    "webHookId": {
+      "type": "String",
       "required": false,
       "length": 20,
       "precision": null,
@@ -15,33 +15,17 @@
       "_selectable": true
     },
     "action": {
-      "type": "string",
+      "type": "String",
       "required": false,
       "length": 20,
       "precision": null,
       "scale": null,
       "_selectable": true
     },
-    "pushRef": {
-      "type": "string",
+    "info": {
+      "type": "String",
       "required": false,
-      "length": 20,
-      "precision": null,
-      "scale": null,
-      "_selectable": true
-    },
-    "issueNumber": {
-      "type": "string",
-      "required": false,
-      "length": 20,
-      "precision": null,
-      "scale": null,
-      "_selectable": true
-    },
-    "issueTitle": {
-      "type": "string",
-      "required": false,
-      "length": 20,
+      "length": 2000,
       "precision": null,
       "scale": null,
       "_selectable": true
@@ -50,6 +34,30 @@
       "type": "Date",
       "required": false,
       "precision": null,
+      "scale": null,
+      "_selectable": true
+    },
+    "error": {
+      "type": "String",
+      "required": false,
+      "precision": null,
+      "length": 4000,
+      "scale": null,
+      "_selectable": true
+    },
+    "stdout": {
+      "type": "String",
+      "required": false,
+      "precision": null,
+      "length": 4000,
+      "scale": null,
+      "_selectable": true
+    },
+    "stderr": {
+      "type": "String",
+      "required": false,
+      "precision": null,
+      "length": 4000,
       "scale": null,
       "_selectable": true
     },
