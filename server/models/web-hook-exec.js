@@ -16,7 +16,7 @@ module.exports = function (WebHookExec) {
     exec(`${clientPath} ${directory} ${versionId}`, function (err, stdout, stderr) {
       console.log(stdout);
       console.log(stderr);
-      if (err||stderr) {
+      if (err || stderr) {
         return next(err, stdout, stderr);
       }
       console.log(stdout);
@@ -28,7 +28,7 @@ module.exports = function (WebHookExec) {
     exec(`${serverPath} ${directory} ${versionId}`, function (err, stdout, stderr) {
       console.log(stdout);
       console.log(stderr);
-      if (err||stderr) {
+      if (err || stderr) {
         return next(err, stdout, stderr);
       }
       console.log(stdout);
@@ -50,7 +50,7 @@ module.exports = function (WebHookExec) {
         return next();
       }
       WebHookExec.create({
-        WebHookId: webHook.id,
+        webHookId: webHook.id,
         action: 'push',
         info: JSON.stringify(info),
         receiveTime: new Date(),
@@ -59,26 +59,35 @@ module.exports = function (WebHookExec) {
         if (!webHookExec) {
           return next();
         }
-        if (webHook.pushCMD == 'client') {
-          clientCmd(webHook.directory, after, function (err, stdout, stderr) {
-            webHookExec.error = JSON.stringify(err||'{}');
-            webHookExec.stdout = stdout;
-            webHookExec.stderr = stderr;
-            webHookExec.save(function (err) {
-              console.log(err)
+        webHookExec.execStatus = 1;
+        webHookExec.save(function (err) {
+          if (err) {
+            console.log(err)
+            return next();
+          }
+          if (webHook.pushCMD == 'client') {
+            clientCmd(webHook.directory, after, function (err, stdout, stderr) {
+              webHookExec.error = JSON.stringify(err || '{}');
+              webHookExec.stdout = stdout;
+              webHookExec.stderr = stderr;
+              webHookExec.execStatus = 2;
+              webHookExec.save(function (err) {
+                console.log(err)
+              });
             });
-          });
-        } else if (webHook.pushCMD == 'server') {
-          serverCmd(webHook.directory, after, function (err, stdout, stderr) {
-            webHookExec.error = JSON.stringify(err||'{}');
-            webHookExec.stdout = stdout;
-            webHookExec.stderr = stderr;
-            webHookExec.save(function (err) {
-              console.log(err)
+          } else if (webHook.pushCMD == 'server') {
+            serverCmd(webHook.directory, after, function (err, stdout, stderr) {
+              webHookExec.error = JSON.stringify(err || '{}');
+              webHookExec.stdout = stdout;
+              webHookExec.stderr = stderr;
+              webHookExec.execStatus = 2;
+              webHookExec.save(function (err) {
+                console.log(err)
+              });
             });
-          });
-        }
-        next();
+          }
+          next();
+        });
       }).catch(function (err) {
         console.log(err);
         next(err);
