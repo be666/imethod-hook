@@ -52,7 +52,7 @@ module.exports = function (AuthAccessUser) {
             return res.redirect("/");
           }
           res.cookie('access_token', accessToken, {signed: true});
-          res.redirect("/hook");
+          res.redirect("/");
         })
       })
     });
