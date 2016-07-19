@@ -44,3 +44,5 @@ server/resource/memory
 client/dist
 
 config.bcaring.json
+
+*.bcaring.json
