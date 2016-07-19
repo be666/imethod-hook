@@ -42,3 +42,5 @@ jspm_packages
 server/resource/memory
 
 client/dist
+
+config.bcaring.json

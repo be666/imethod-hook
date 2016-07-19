@@ -3,14 +3,26 @@ var loopback = require('loopback');
 var boot = require('loopback-boot');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-var app = module.exports = loopback();
+var token = require('./middleware/token.js');
+var app = loopback();
 // configure body parser
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser('secret'));
-
-app.start = function() {
+app.use(loopback.context({name: "hook"}));
+app.use(loopback.token());
+app.use(function setCurrentUser(req, res, next) {
+  if (!req.accessToken) {
+    return next();
+  }
+  var loopbackContext = loopback.getCurrentContext();
+  if (loopbackContext) {
+    loopbackContext.set('currentUser', req.accessToken.user);
+  }
+  next();
+});
+app.start = function () {
   // start the web server
-  return app.listen(function() {
+  return app.listen(function () {
     app.emit('started');
     var baseUrl = app.get('url').replace(/\/$/, '');
     console.log('Web server listening at: %s', baseUrl);
@@ -22,7 +34,7 @@ app.start = function() {
 };
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
-boot(app, __dirname, function(err) {
+boot(app, __dirname, function (err) {
   if (err) throw err;
   // start the server if `$ node server.js`
   if (require.main === module)

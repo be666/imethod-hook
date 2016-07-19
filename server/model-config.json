@@ -4,7 +4,7 @@
       "loopback/common/models",
       "loopback/server/models",
       "./models",
-      "../app/auth/models"
+      "../common/models"
     ],
     "mixins": [
       "loopback/common/mixins",
@@ -21,9 +21,13 @@
     "dataSource": "db",
     "public": false
   },
-  "AuthClient": {
-    "dataSource": "hook",
-    "public": true
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
   },
   "WebHook": {
     "dataSource": "hook",
@@ -31,6 +35,14 @@
   },
   "WebHookExec": {
     "dataSource": "hook",
+    "public": true
+  },
+  "AuthAccessToken": {
+    "dataSource": "remote",
+    "public": false
+  },
+  "AuthAccessUser": {
+    "dataSource": "db",
     "public": true
   }
 }

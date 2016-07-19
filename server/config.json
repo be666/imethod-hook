@@ -2,15 +2,10 @@
   "restApiRoot": "/api",
   "host": "0.0.0.0",
   "port": 10086,
-  "authServer": {
-    "serverUrl": "http://0.0.0.0:3000",
-    "userInfo": "/api/AuthServers/info",
-    "userAppAccess": "/api/AuthServers/access",
-    "login": "/login",
-    "logout": "/api/AuthServers/logout"
-  },
-  "authClient": {
-    "appToken": "75df793c7c2545cd9720028c8ef54eee"
+  "auth": {
+    "appId": "f790a67361558c48d63812156819bd70",
+    "clientKey": "20ddff38c7be2e021dd3d465f3b00d1dd0cbb608",
+    "AccessTokens":"http://auth.dev.bcaring.cn/api/AccessTokens"
   },
   "remoting": {
     "context": {

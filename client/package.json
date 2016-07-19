@@ -5,7 +5,7 @@
   "author": "bqxu <bcaring@163.com>",
   "private": true,
   "scripts": {
-    "dev": "node --harmony build/dev-server.js",
+    "dev": "export PORT=8088 && node --harmony build/dev-server.js",
     "build": "node --harmony build/build.js",
     "unit": "karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
@@ -18,7 +18,7 @@
     "vue": "^1.0.21",
     "vue-resource": "^0.1.17",
     "vue-router": "^0.7.7",
-    "vue-view-components": "0.0.4"
+    "vue-view-components": "0.0.14"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",

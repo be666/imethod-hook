@@ -1,0 +1,6 @@
+{
+  "siteUrl": "http://hook.bcaring.com",
+  "auth": {
+    "AccessTokens": "http://auth.bcaring.cn/api/AccessTokens"
+  }
+}

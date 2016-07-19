@@ -4,7 +4,6 @@ var async = require('async');
 module.exports = function (app) {
 
   let init = function () {
-
   };
   if (process.env.NODE_ENV != 'bcaring') {
     async.mapSeries(app.models(), function (Model, cbx) {

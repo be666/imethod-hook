@@ -35,8 +35,13 @@ router.map({
           "hook/:hookId": {
             name: "hook-info",
             component: require("./hook-info.vue")
-          }
+          },
+
         }
+      },
+      "login": {
+        name: "login",
+        component: require("./login.vue")
       }
     }
   }
@@ -48,8 +53,7 @@ router.redirect({
 
 router.beforeEach(function (transition) {
   let $this = transition.to.router.app;
-  return   transition.next();
-  if ($this.$tools.inArray($this.$auth.ignore, transition.to.path)) {
+  if ($this.$tools.inArray($this.$config.auth.ignore, transition.to.path)) {
     transition.next()
   } else {
     $this.$auth.valid($this, function () {

@@ -1,45 +1,38 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
-  <div class="am-panel am-panel-default">
-
-    <div class="am-panel-hd">
-      <h3 class="am-panel-title">
-        Insert Hook
-      </h3>
+  <div class="i-panel i-grew-h">
+    <div class="i-panel-header">
+      Insert Hook
     </div>
-    <div class="am-panel-bd">
-      <form class="am-form am-form-horizontal"
+    <div class="i-panel-body">
+      <form class="i-form"
             v-on:submit.prevent="submitForm"
             v-on:reset.prevent="reset">
         <fieldset>
           <legend>HookInfo</legend>
-          <div class="am-form-group">
-            <label class="am-u-sm-3 am-form-label">repositoryName</label>
-            <div class="am-u-sm-9 am-u-end ">
-              <input type="text" v-model="hook.repositoryName" required placeholder="">
-            </div>
+          <div class="i-row">
+            <label class="i-col-3 i-text-al-r">repositoryName</label>
+            <input type="text"
+                   class="i-col-9"
+                   v-model="hook.repositoryName" required placeholder="">
           </div>
-          <div class="am-form-group">
-            <label class="am-u-sm-3 am-form-label">directory</label>
-            <div class="am-u-sm-9 am-u-end ">
-              <input type="text" v-model="hook.directory" required placeholder="">
-            </div>
+          <div class="i-row">
+            <label class="i-col-3 i-text-al-r">directory</label>
+            <input type="text"
+                   class="i-col-9"
+                   v-model="hook.directory" required placeholder="">
           </div>
-          <div class="am-form-group">
-            <label class="am-u-sm-3 am-form-label">ref</label>
-            <div class="am-u-sm-9 am-u-end ">
-              <input type="text" v-model="hook.ref" required placeholder="">
-            </div>
+          <div class="i-row">
+            <label class="i-col-3 i-text-al-r">ref</label>
+            <input type="text" class="i-col-9" v-model="hook.ref" required placeholder="">
           </div>
-          <div class="am-form-group">
-            <label class="am-u-sm-3 am-form-label">pushCMD</label>
-            <div class="am-u-sm-9 am-u-end ">
-              <input type="text" v-model="hook.pushCMD" required placeholder="">
-            </div>
+          <div class="i-row">
+            <label class="i-col-3 i-text-al-r">pushCMD</label>
+            <input type="text" class="i-col-9" v-model="hook.pushCMD" required placeholder="">
           </div>
-          <div class="am-form-group">
-            <div class="am-u-sm-10 am-u-sm-offset-2">
-              <button type="submit" class="am-btn am-btn-default">提交</button>
-              <button type="reset" class="am-btn am-btn-default">取消&返回</button>
+          <div class="i-text-al-c ">
+            <div class="i-btn-g i-in-flex">
+              <button type="submit">提交</button>
+              <button type="reset">取消&返回</button>
             </div>
           </div>
         </fieldset>

@@ -1,6 +1,4 @@
 'use strict';
-let loopback = require('loopback');
-let app = require('../server/server');
 let fs = require('fs');
 let http = require('http');
 let path = require('path');
@@ -8,8 +6,6 @@ let url = require('url');
 let crypto = require('crypto');
 let errorCodes = {};
 var pub = {};
-pub.loopback = loopback;
-pub.app = app;
 let _assign = (target) => {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i];
@@ -96,9 +92,6 @@ pub.getUUid = function (len, radix) {
   }
   return uuid.join('');
 };
-pub.getModelByName = function (modelName) {
-  return loopback.getModel(modelName);
-};
 pub.inArray = function (arr, el) {
   arr = arr || [];
   for (var i = 0, k = arr.length; i < k; i++) {
@@ -113,21 +106,6 @@ pub.inArrayMatch = function (arr, el) {
     if (el.indexOf(arr[i]) > -1) {
       return true;
     }
-  }
-};
-pub.getArg = function (arg) {
-  return app.get(arg);
-};
-pub.saveUser = function (userInfo) {
-  var context = loopback.getCurrentContext();
-  if (context != null) {
-    context.set('threadUserInfo', userInfo);
-  }
-};
-pub.getUser = function () {
-  var context = loopback.getCurrentContext();
-  if (context != null) {
-    return context.get('threadUserInfo');
   }
 };
 pub.buildMap = function (list, code, codeName) {

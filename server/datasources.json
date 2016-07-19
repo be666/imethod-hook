@@ -8,5 +8,10 @@
     "name": "hook",
     "connector": "memory",
     "file": "server/resource/memory/hook.json"
+  },
+  "remote": {
+    "url": "http://localhost:11060/api",
+    "name": "remote",
+    "connector": "remote"
   }
 }

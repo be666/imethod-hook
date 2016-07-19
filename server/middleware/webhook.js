@@ -1,6 +1,6 @@
 'use strict';
 var createHandler = require('github-webhook-handler');
-let tools = require('../../tools');
+let loopback = require('loopback');
 function webHook(options) {
   var handler = createHandler({path: options.path || '/', secret: options.secret})
 
@@ -17,7 +17,7 @@ function webHook(options) {
     console.log('Received a push event for %s to %s',
       event.payload.repository.name,
       event.payload.ref);
-    let WebHookExec = tools.getModelByName('WebHookExec');
+    let WebHookExec = loopback.getModel('WebHookExec');
     WebHookExec.push(event.payload.repository.name, event.payload.ref, event.payload.after,event, function () {
 
     })

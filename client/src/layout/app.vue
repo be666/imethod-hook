@@ -1,18 +1,12 @@
 <template>
-  <div class="am-g am-g-fixed" id="bd-warp">
-    <div class="am-container doc-content">
-      <section>
-        <router-view>
+  <div class="i-row i-scope i-row-keep">
+    <router-view>
 
-        </router-view>
-      </section>
-    </div>
+    </router-view>
   </div>
 </template>
 <style>
-  #bd-warp {
-    min-width: 1000px;
-  }
+
 </style>
 <script>
   export default {
