@@ -44,5 +44,9 @@
   "AuthAccessUser": {
     "dataSource": "db",
     "public": true
+  },
+  "AuthUser": {
+    "dataSource": "db",
+    "public": true
   }
 }
