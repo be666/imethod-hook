@@ -7,7 +7,7 @@ function fetchBuild(){
 
   echo "start fetch :"$1
 
-  git fetch "origin"
+  git fetch
 
   echo "start reset .... "
 
@@ -22,6 +22,8 @@ function fetchBuild(){
   echo "start install .... "
 
   npm install
+
+  sleep 5
 
   echo "start build .... "
 

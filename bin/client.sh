@@ -17,7 +17,7 @@ function fetchBuild(){
 
   echo "start fetch :"$1
 
-  git fetch "origin"
+  git fetch
 
   echo "start reset .... "
 

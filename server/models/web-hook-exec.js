@@ -1,4 +1,4 @@
-let exec = require('child_process').exec;
+let execFile = require('child_process').execFile;
 let path = require('path');
 let clientPath = path.resolve(__dirname, '../../bin/client.sh');
 let serverPath = path.resolve(__dirname, '../../bin/server.sh');
@@ -13,19 +13,11 @@ module.exports = function (WebHookExec) {
 
   let clientCmd = function (directory, versionId, next) {
 
-    exec(`${clientPath} ${directory} ${versionId}`, function (err, stdout, stderr) {
-      console.log(stdout);
-      console.log(stderr);
-      next(err, stdout, stderr);
-    });
+    execFile(clientPath, [directory, versionId]);
   };
 
   let serverCmd = function (directory, versionId, next) {
-    exec(`${serverPath} ${directory} ${versionId}`, function (err, stdout, stderr) {
-      console.log(stdout);
-      console.log(stderr);
-      next(err, stdout, stderr);
-    });
+    execFile(serverPath, [directory, versionId]);
   };
 
   WebHookExec.push = function (repositoryName, ref, after, info, next) {
@@ -58,25 +50,9 @@ module.exports = function (WebHookExec) {
             return next();
           }
           if (webHook.pushCMD == 'client') {
-            clientCmd(webHook.directory, after, function (err, stdout, stderr) {
-              webHookExec.error = JSON.stringify(err || '{}');
-              webHookExec.stdout = stdout;
-              webHookExec.stderr = stderr;
-              webHookExec.execStatus = 2;
-              webHookExec.save(function (err) {
-                console.log(err)
-              });
-            });
+            clientCmd(webHook.directory, after);
           } else if (webHook.pushCMD == 'server') {
-            serverCmd(webHook.directory, after, function (err, stdout, stderr) {
-              webHookExec.error = JSON.stringify(err || '{}');
-              webHookExec.stdout = stdout;
-              webHookExec.stderr = stderr;
-              webHookExec.execStatus = 2;
-              webHookExec.save(function (err) {
-                console.log(err)
-              });
-            });
+            serverCmd(webHook.directory, after);
           }
           next();
         });
