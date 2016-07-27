@@ -20,5 +20,15 @@
         "NODE_ENV": "bcaring"
       }
     }
-  ]
+  ],
+  "deploy": {
+    "bcaring": {
+      "user": "root",
+      "host": "bcaring.cn",
+      "ref": "origin/master",
+      "repo": "git@github.com:imethod/imethod-hook.git",
+      "path": "/var/www/imethod-hook",
+      "post-deploy": "npm install;pm2 startOrRestart ecosystem.json --env bcaring"
+    }
+  }
 }

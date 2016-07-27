@@ -5,10 +5,8 @@
   "main": "server/server.js",
   "scripts": {
     "dev": "export NODE_ENV=dev && pm2-dev ecosystem.dev.json",
-    "build": "cd client;npm install && npm run build ",
     "pretest": "eslint .",
-    "posttest": "nsp check",
-    "start": "npm install;pm2 startOrRestart ecosystem.json --env bcaring"
+    "posttest": "nsp check"
   },
   "dependencies": {
     "async": "^2.0.0",
